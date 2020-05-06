@@ -56,6 +56,7 @@ NSString *const MPKitAdjustErrorDomain = @"mParticle-Adjust";
     NSString *adjEnvironment = [MParticle sharedInstance].environment == MPEnvironmentProduction ? ADJEnvironmentProduction : ADJEnvironmentSandbox;
     static dispatch_once_t adjustPredicate;
     
+    NSString *adjLogLevel = [MParticle sharedInstance].logLevel == MPILogLevelVerbose ? ADJLogLevelVerbose : ADJLogLevelInfo;
     
     
     dispatch_once(&adjustPredicate, ^{
@@ -70,6 +71,7 @@ NSString *const MPKitAdjustErrorDomain = @"mParticle-Adjust";
             didSetKitDelegate = YES;
         }
         
+        self->_adjustConfig.logLevel = adjLogLevel;
         self->_adjustConfig.delegate = delegate;
         
         [Adjust appDidLaunch:self->_adjustConfig];
