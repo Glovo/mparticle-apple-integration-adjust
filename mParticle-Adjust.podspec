@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "9.0"
     s.ios.source_files      = 'Sources/**/*.{h,m,mm}'
     s.ios.dependency 'mParticle-Apple-SDK/mParticle', '~> 8.2'
-    s.ios.dependency 'Adjust', :git => 'https://github.com/yhkaplan/ios_sdk'
+    s.ios.dependency 'Adjust'
 end
